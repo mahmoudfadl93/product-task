@@ -1,23 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Fragment } from "react";
+
+import "./App.css";
+import Cart from "./components/cart/Cart";
+import { Container, Row, Col } from "react-bootstrap";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Products from "./pages/products";
+import ProductsDetails from "./pages/products-details";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Container fluid>
+        <Row>
+          <Col lg="9">
+            <Router>
+              <Fragment>
+                <Switch>
+                  <Route exact path="/" component={Products} />
+                  <Route
+                    exact
+                    path="/products-details/:id"
+                    component={ProductsDetails}
+                  />
+                </Switch>
+              </Fragment>
+            </Router>
+          </Col>
+          <Col lg="3">
+            {" "}
+            <Cart />
+          </Col>
+        </Row>
+      </Container>
     </div>
   );
 }

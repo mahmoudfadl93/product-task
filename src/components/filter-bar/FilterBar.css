@@ -1,0 +1,9 @@
+.label-with-dropdown {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.label-with-dropdown> select{
+    width: 55%;
+}
